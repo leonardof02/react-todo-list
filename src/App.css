@@ -1,0 +1,22 @@
+main h1 {
+    letter-spacing: .3em;
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-dimmed);
+}
+
+.background-image {
+    z-index: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.todo-list-container {
+    z-index: 20;
+    width: 90%;
+}
