@@ -27,7 +27,7 @@ body {
 
 .todo-list-container {
     z-index: 20;
-    width: clamp(300px, 90%, 700px);
+    width: clamp(300px, 85%, 500px);
 }
 
 .box {

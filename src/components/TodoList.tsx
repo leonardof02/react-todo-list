@@ -63,7 +63,7 @@ export default function TodoList() {
                     />
                 ))}
                 <div
-                    className="todo separated-flex"
+                    className="separated-flex"
                     style={{ padding: "1rem", borderBottom: "none", cursor: "default" }}
                 >
                     <p>{todos.length - todos.filter(todo => todo.checked).length} items left</p>

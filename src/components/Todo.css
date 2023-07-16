@@ -1,14 +1,16 @@
 .todo {
     border-bottom: 1px solid var(--divider);
+    background-color: var(--background-todo);
     box-shadow: none;
     border-radius: 0;
     margin: 0;
+    padding: 1rem;
     align-items: center;
 }
 
 .todo:hover {
     cursor: move;
-    filter: brightness(1.05);
+    filter: brightness(1.2);
 }
 
 .todo p {

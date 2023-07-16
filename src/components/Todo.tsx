@@ -21,7 +21,7 @@ export default function Todo({ id, check, title, onChange, onDelete }: TodoProps
     }
 
     return (
-        <div className="box flex-series todo">
+        <div className="flex-series todo">
             <div className={`checkbox ${check ? "checked" : ""}`} onClick={handleChange}>
                 {check && <img src={checkIcon} alt="check" />}
             </div>
