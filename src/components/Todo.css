@@ -1,9 +1,14 @@
 .todo {
-    border-bottom: 1px solid var(--text-dimmed);
+    border-bottom: 1px solid var(--divider);
     box-shadow: none;
     border-radius: 0;
     margin: 0;
     align-items: center;
+}
+
+.todo:hover {
+    cursor: move;
+    filter: brightness(1.05);
 }
 
 .todo p {

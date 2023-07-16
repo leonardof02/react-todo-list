@@ -36,8 +36,8 @@ body {
     border-radius: 50%;
     border: 1px solid var(--text-dimmed);
 
-    transition: border-radius, border-image, border 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-
+    transition: border-radius, border 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: var(--background-todo);
 }
 
 .checked {
@@ -51,13 +51,21 @@ body {
     width: 60%;
 }
 
-
 .checkbox:hover {
-    border-radius: 1000px;
     cursor: pointer;
-    border-image: var(--check-background) 1;
+    border-color: var(--primary-color);
+    border-width: 3px;
 }
 
 .options button:hover {
     color: var(--text-color-hover);
+}
+
+.text-active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.todos-container {
+    transition: height .3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }

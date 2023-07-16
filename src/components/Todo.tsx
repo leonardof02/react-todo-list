@@ -4,15 +4,21 @@ import checkIcon from "../assets/images/icon-check.svg";
 import "./Todo.css";
 
 interface TodoProps {
-    onChange?: (actualValue: boolean) => void;
+    id: number;
+    onChange?: (actualValue: boolean, id: number) => void;
+    onDelete?: (index: number) => void; 
     check?: boolean;
     title: string;
 }
 
-export default function Todo({ check, title, onChange }: TodoProps) {
+export default function Todo({ id, check, title, onChange, onDelete }: TodoProps) {
     const handleChange = () => {
-        onChange && onChange(check || false);
+        onChange && onChange(!check || false, id);
     };
+
+    const handleDelete = () => {
+        onDelete && onDelete(id);
+    }
 
     return (
         <div className="box flex-series todo">
@@ -20,7 +26,7 @@ export default function Todo({ check, title, onChange }: TodoProps) {
                 {check && <img src={checkIcon} alt="check" />}
             </div>
             <p>{title}</p>
-            <button style={{ marginLeft: "auto" }} className="delete-btn">
+            <button style={{ marginLeft: "auto" }} className="delete-btn" onClick={handleDelete}>
                 <img className="delete-btn" src={iconDelete} alt="Delete Icon" />
             </button>
         </div>

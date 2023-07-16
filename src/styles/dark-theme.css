@@ -4,6 +4,6 @@
     --text-color: hsl(234, 39%, 85%);
     --text-color-hover: hsl(236, 33%, 92%);
     --text-dimmed: hsl(234, 11%, 52%);
-    /* --a: hsl(233, 14%, 35%);
-    --b: hsl(237, 14%, 26%); */
+    --divider: hsl(237, 14%, 26%);
+    /* --a: hsl(233, 14%, 35%); */
 }

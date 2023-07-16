@@ -7,7 +7,6 @@ interface NewTodoInputProps {
 }
 
 export default function NewTodoInput({ onSubmit }: NewTodoInputProps) {
-    
     const [checked, setChecked] = useState<boolean>(false);
     const [value, setValue] = useState<string>("");
 
@@ -18,12 +17,15 @@ export default function NewTodoInput({ onSubmit }: NewTodoInputProps) {
     };
 
     const handleSubmit = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === "Enter") onSubmit && onSubmit(value, checked);
+        if (event.key === "Enter" && value.length > 0) {
+            onSubmit && onSubmit(value.trim(), checked);
+            setValue("");
+        }
     };
 
     return (
         <div className="box flex-series">
-            <div className={`checkbox ${ checked ? "checked" : "" }`} onClick={toggleChecked}>
+            <div className={`checkbox ${checked ? "checked" : ""}`} onClick={toggleChecked}>
                 {checked && <img src={checkIcon} alt="check" />}
             </div>
             <input
