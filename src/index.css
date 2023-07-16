@@ -3,7 +3,7 @@
 /* Variables */
 :root {
     --primary-color: hsl(220, 98%, 61%);
-    --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+    --check-background: linear-gradient( 120deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%) )
 }
 
 /* Normalize document  */
@@ -19,11 +19,24 @@ a {
 
 button,
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+input[type="text"] {
     appearance: none;
     border: none;
     background: transparent;
     cursor: pointer;
+    outline: none;
+}
+
+input[type="text"] {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-dimmed);
+}
+
+input[type="text"]:hover, input[type="text"]:focus {
+    color: var(--text-color-hover);
 }
 
 body {
@@ -53,4 +66,16 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-series {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
 }

@@ -1,24 +1,27 @@
-import icon from "../assets/images/icon-cross.svg";
+import iconDelete from "../assets/images/icon-cross.svg";
 import checkIcon from "../assets/images/icon-check.svg";
-import styles from "./ToDo.module.css";
-import { useState } from "react";
+
+import "./Todo.css";
 
 interface TodoProps {
-    completed: boolean;
-    text: string;
+    onChange?: (actualValue: boolean) => void;
+    check?: boolean;
+    title: string;
 }
 
-export default function Todo({ completed, text }: TodoProps) {
-    const [checked, setChecked] = useState(completed);
+export default function Todo({ check, title, onChange }: TodoProps) {
+    const handleChange = () => {
+        onChange && onChange(check || false);
+    };
 
     return (
-        <div className={styles.todoContainer}>
-            <div className="checkbox check" onClick={ () => { setChecked(!checked) } }>
-                { completed && checkIcon }
+        <div className="box flex-series todo">
+            <div className={`checkbox ${check ? "checked" : ""}`} onClick={handleChange}>
+                {check && <img src={checkIcon} alt="check" />}
             </div>
-            <p>{text}</p>
-            <button className="delete-button">
-                <img src={icon} alt="icon-cross" />
+            <p>{title}</p>
+            <button style={{ marginLeft: "auto" }} className="delete-btn">
+                <img className="delete-btn" src={iconDelete} alt="Delete Icon" />
             </button>
         </div>
     );

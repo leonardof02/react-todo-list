@@ -5,8 +5,10 @@ import moonIcon from "./assets/images/icon-moon.svg";
 import sunIcon from "./assets/images/icon-sun.svg";
 
 import "./index.css";
-import "./styles/dark-theme.css";
 import "./App.css";
+import "./styles/dark-theme.css";
+
+import TodoList from "./components/TodoList";
 
 function App() {
     return (
@@ -24,7 +26,7 @@ function App() {
                             <img src={sunIcon} alt="Sun icon" />
                         </button>
                     </div>
-                    < TodoList />
+                    <TodoList />
                 </div>
             </main>
         </>
