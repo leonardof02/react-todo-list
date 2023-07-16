@@ -27,7 +27,7 @@ export default function NewTodoInput({ onSubmit }: NewTodoInputProps) {
                 {checked && <img src={checkIcon} alt="check" />}
             </div>
             <input
-                style={{ width: "100%" }}
+                style={{ width: "80%" }}
                 value={value}
                 type="text"
                 name="title"
