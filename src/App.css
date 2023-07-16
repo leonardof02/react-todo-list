@@ -57,3 +57,7 @@ body {
     cursor: pointer;
     border-image: var(--check-background) 1;
 }
+
+.options button:hover {
+    color: var(--text-color-hover);
+}
