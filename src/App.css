@@ -56,6 +56,13 @@ body {
     background: var(--check-background);
 }
 
+p.checked {
+    color: var(--divider);
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    background: transparent;
+}
+
 .checked img {
     width: 60%;
 }

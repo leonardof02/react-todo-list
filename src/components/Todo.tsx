@@ -23,9 +23,9 @@ export default function Todo({ id, check, title, onChange, onDelete }: TodoProps
     return (
         <div className="flex-series todo">
             <div className={`checkbox ${check ? "checked" : ""}`} onClick={handleChange}>
-                {check && <img src={checkIcon} alt="check" />}
+                { check && <img src={checkIcon} alt="check" /> }
             </div>
-            <p>{title}</p>
+            <p className={`${check ? "checked" : ""}`}>{title}</p>
             <button style={{ marginLeft: "auto" }} className="delete-btn" onClick={handleDelete}>
                 <img className="delete-btn" src={iconDelete} alt="Delete Icon" />
             </button>
