@@ -12,6 +12,7 @@
 }
 
 .todo p {
+    user-select: none;
     color: var(--text-color);
 }
 

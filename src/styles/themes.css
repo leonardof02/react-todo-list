@@ -1,0 +1,17 @@
+.light-theme {
+    --background-color: hsl(0, 0%, 98%);
+    --background-todo: hsl(236, 33%, 92%);
+    --text-color: hsl(235, 19%, 35%);
+    --text-color-hover: hsl(235, 21%, 22%);
+    --text-dimmed: hsl(234, 11%, 52%);
+    --divider: hsl(233, 11%, 84%);
+}
+
+.dark-theme {
+    --background-color: hsl(235, 21%, 11%);
+    --background-todo: hsl(235, 24%, 19%);
+    --text-color: hsl(234, 39%, 85%);
+    --text-color-hover: hsl(236, 33%, 92%);
+    --text-dimmed: hsl(234, 11%, 52%);
+    --divider: hsl(237, 14%, 26%);
+}

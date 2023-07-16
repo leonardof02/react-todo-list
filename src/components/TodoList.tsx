@@ -1,7 +1,7 @@
 import Todo from "./Todo";
 import NewTodoInput from "./NewTodoInput";
 import { FilterMode, Todo as TodoType } from "../types/app";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 
 // TODO: Fix the bottom Screen of todo
 // TODO: Investigate how to controll screen size for mobile and desktop background
