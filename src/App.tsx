@@ -20,9 +20,9 @@ function App() {
                     alt="Background Picture"
                 />
                 <div className="todo-list-container">
-                    <div className="separated-flex">
+                    <div className="separated-flex margin">
                         <h1>TODO</h1>
-                        <button>
+                        <button id="theme-changer">
                             <img src={sunIcon} alt="Sun icon" />
                         </button>
                     </div>

@@ -4,7 +4,6 @@ import { FilterMode, Todo as TodoType } from "../types/app";
 import { ReactNode, useState } from "react";
 
 // TODO: Fix the bottom Screen of todo
-// TODO: Round todo container corner
 // TODO: Investigate how to controll screen size for mobile and desktop background
 
 export default function TodoList() {
@@ -65,7 +64,7 @@ export default function TodoList() {
                 ))}
                 <div
                     className="todo separated-flex"
-                    style={{ padding: "1rem", borderBottom: "none" }}
+                    style={{ padding: "1rem", borderBottom: "none", cursor: "default" }}
                 >
                     <p>{todos.length - todos.filter(todo => todo.checked).length} items left</p>
                     <button onClick={deleteCompletedTodos}>Clear Completed</button>

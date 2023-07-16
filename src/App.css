@@ -8,6 +8,14 @@ body {
     color: var(--text-dimmed);
 }
 
+#theme-changer {
+    transition: transform .3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#theme-changer:hover {
+    transform: rotate(20deg) scale(1.2);
+}
+
 .background-image {
     z-index: 0;
     width: 100%;
