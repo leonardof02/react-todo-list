@@ -1,12 +1,11 @@
+import { useState } from "react";
 import Todo from "./Todo";
 import NewTodoInput from "./NewTodoInput";
 import { FilterMode, Todo as TodoType } from "../types/app";
-import { useState } from "react";
 
-// TODO: Fix the bottom Screen of todo
-// TODO: Investigate how to controll screen size for mobile and desktop background
 
 export default function TodoList() {
+
     const [todos, setTodos] = useState<TodoType[]>([]);
     const [filterMode, setFilterMode] = useState<FilterMode>("All");
 
@@ -48,9 +47,17 @@ export default function TodoList() {
         }
     };
 
+    const handleDrop = ( idFrom: number, idTo: number ) => {
+        const todoFrom = todos[idFrom];
+        const newTodos = todos.filter( (_todo, index) => index != idFrom );
+        newTodos.splice( idTo, 0, todoFrom );
+        setTodos(newTodos);
+    }
+
     return (
         <div className="flex-column">
             <NewTodoInput onSubmit={handleSubmit} />
+            
             <div style={{ padding: 2 }} className="box todos-container">
                 {filterTodos(filterMode).map((todos, index) => (
                     <Todo
@@ -60,6 +67,7 @@ export default function TodoList() {
                         check={todos.checked}
                         onChange={handleChange}
                         onDelete={handleDelete}
+                        onDrop={ handleDrop }
                     />
                 ))}
                 <div

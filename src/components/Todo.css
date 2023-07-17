@@ -25,3 +25,13 @@
 .delete-btn:hover {
     color: var(--text-color-hover);
 }
+
+.dragging {
+    opacity: 0.1;
+}
+
+.drag-over {
+    filter: contrast(1.2);
+    border-bottom-style: dashed;
+    border-bottom-width: 3px;
+}
