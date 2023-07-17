@@ -32,8 +32,9 @@ export default function TodoList() {
     };
 
     const handleDelete = (todoIndex: number) => {
-        setTodos(todos.filter((_todo, index) => todoIndex != index));
-        localStorage.setItem("todos", JSON.stringify(todos))
+        const newTodos = todos.filter((_todo, index) => todoIndex != index);
+        setTodos( newTodos );
+        localStorage.setItem("todos", JSON.stringify(newTodos));
     };
 
     const deleteCompletedTodos = () => {
