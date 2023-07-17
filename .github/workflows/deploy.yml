@@ -1,0 +1,53 @@
+name: Deployment React with vitejs project with pnpm
+
+on:
+  push:
+    branches: ['main']
+
+  workflow_dispatch: # Execute and configure manually from actions tab
+
+# Set permission for the user
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow concurrent modification
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+            version: 8
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build
+        run: pnpm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Subir repositorio dist
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
