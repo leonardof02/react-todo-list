@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Todo from "./Todo";
 import NewTodoInput from "./NewTodoInput";
 import { FilterMode, Todo as TodoType } from "../types/app";
@@ -9,10 +9,17 @@ export default function TodoList() {
     const [todos, setTodos] = useState<TodoType[]>([]);
     const [filterMode, setFilterMode] = useState<FilterMode>("All");
 
+    useEffect( () => {
+        const JSONTodos: string | null = localStorage.getItem('todos');
+        setTodos( JSONTodos ? JSON.parse(JSONTodos) : [] );
+    }, [])
+
+
     const handleChange = (newValue: boolean, id: number) => {
         const newTodos = [...todos];
         newTodos[id].checked = newValue;
         setTodos(newTodos);
+        localStorage.setItem("todos", JSON.stringify(todos));
     };
 
     const handleSubmit = (value: string, check: boolean) => {
@@ -21,14 +28,17 @@ export default function TodoList() {
             checked: check
         };
         setTodos([...todos, newTodo]);
+        localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
     };
 
     const handleDelete = (todoIndex: number) => {
         setTodos(todos.filter((_todo, index) => todoIndex != index));
+        localStorage.setItem("todos", JSON.stringify(todos))
     };
 
     const deleteCompletedTodos = () => {
         setTodos(filterTodos("Active"));
+        localStorage.setItem("todos", JSON.stringify(todos))
     };
 
     const filterTodos = (filterMode: FilterMode): TodoType[] => {
@@ -52,6 +62,7 @@ export default function TodoList() {
         const newTodos = todos.filter( (_todo, index) => index != idFrom );
         newTodos.splice( idTo, 0, todoFrom );
         setTodos(newTodos);
+        localStorage.setItem("todos", JSON.stringify(todos))
     }
 
     return (
